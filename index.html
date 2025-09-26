@@ -8,7 +8,6 @@
 </head>
 <body class="bg-gray-100 dark:bg-gray-900 min-h-screen p-4">
     <div class="max-w-6xl mx-auto">
-        <!-- Cabeçalho -->
         <div class="flex justify-between items-center mb-6">
             <h1 class="text-3xl font-bold text-gray-800 dark:text-white">Lista de Tarefas</h1>
             <div class="flex items-center gap-3">
@@ -19,19 +18,16 @@
             </div>
         </div>
 
-        <!-- Filtros -->
         <div class="mb-6 flex space-x-4">
             <button id="filtroTodas" class="filtro-btn filtro-ativo" data-filtro="todas">Todas</button>
             <button id="filtroPendentes" class="filtro-btn" data-filtro="pendentes">Pendentes</button>
             <button id="filtroConcluidas" class="filtro-btn" data-filtro="concluidas">Concluídas</button>
         </div>
 
-        <!-- Botão Nova Tarefa -->
         <div class="mb-6">
             <button id="btnNovaTarefa" class="nova-tarefa-btn">Nova Tarefa</button>
         </div>
 
-        <!-- Tabela de Tarefas -->
         <div class="bg-white dark:bg-gray-800 rounded-lg shadow overflow-hidden">
             <table class="w-full">
                 <thead class="bg-gray-50 dark:bg-gray-700">
@@ -44,12 +40,10 @@
                     </tr>
                 </thead>
                 <tbody id="tabelaTarefas" class="divide-y divide-gray-200 dark:divide-gray-700">
-                    <!-- Tarefas aparecem aqui -->
                 </tbody>
             </table>
         </div>
 
-        <!-- Modal Nova Tarefa -->
         <div id="modalNovaTarefa" class="modal hidden">
             <div class="modal-content">
                 <h2 class="text-xl font-bold mb-4">Nova Tarefa</h2>
@@ -70,7 +64,6 @@
             </div>
         </div>
 
-        <!-- Modal de Confirmação -->
         <div id="modalConfirmacao" class="modal hidden">
             <div class="modal-content">
                 <h2 class="text-xl font-bold mb-4">Confirmação</h2>
