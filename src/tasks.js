@@ -1,10 +1,8 @@
 import { salvarTarefas, carregarTarefas } from './storage.js';
 
-// Array para armazenar as tarefas
 let tarefas = carregarTarefas();
 let filtroAtual = 'todas';
 
-// Funções para gerenciar tarefas
 export function adicionarTarefa(titulo, descricao) {
     const novaTarefa = {
         id: Date.now(),
