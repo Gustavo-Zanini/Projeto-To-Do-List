@@ -1,4 +1,3 @@
-// Funções para salvar e carregar do localStorage
 export function salvarTarefas(tarefas) {
     localStorage.setItem('tarefas', JSON.stringify(tarefas));
 }
