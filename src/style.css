@@ -1,0 +1,78 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Classes personalizadas */
+@layer components {
+    .filtro-btn {
+        @apply px-4 py-2 rounded-md font-medium transition-colors;
+    }
+    
+    .filtro-ativo {
+        @apply bg-blue-600 text-white;
+    }
+    
+    .nova-tarefa-btn {
+        @apply px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 transition-colors font-medium;
+    }
+    
+    .input-field {
+        @apply w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md 
+               bg-white dark:bg-gray-700 text-gray-900 dark:text-white
+               focus:outline-none focus:ring-2 focus:ring-indigo-500;
+    }
+    
+    .btn-cancelar {
+        @apply px-4 py-2 bg-gray-300 dark:bg-gray-600 text-gray-700 dark:text-gray-300 
+               rounded-md hover:bg-gray-400 dark:hover:bg-gray-500 transition-colors font-medium;
+    }
+    
+    .btn-salvar {
+        @apply px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 
+               transition-colors font-medium;
+    }
+    
+    .btn-confirmar {
+        @apply px-4 py-2 bg-red-600 text-white rounded-md hover:bg-red-700 
+               transition-colors font-medium;
+    }
+    
+    .modal {
+        @apply fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50;
+    }
+    
+    .modal-content {
+        @apply bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 w-full max-w-md;
+    }
+    
+    .acao-btn {
+        @apply font-medium hover:underline;
+    }
+    
+    .btn-concluir {
+        @apply text-green-600 hover:text-green-800 dark:text-green-400 dark:hover:text-green-300;
+    }
+    
+    .btn-excluir {
+        @apply text-red-600 hover:text-red-800 dark:text-red-400 dark:hover:text-red-300;
+    }
+}
+
+/* Animações */
+.fade-in {
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Estilos para estados das tarefas */
+.situacao-pendente {
+    @apply text-yellow-600 dark:text-yellow-400 font-medium;
+}
+
+.situacao-concluida {
+    @apply text-green-600 dark:text-green-400 font-medium;
+}

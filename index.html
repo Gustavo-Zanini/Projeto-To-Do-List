@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Tarefas</title>
+    <link rel="stylesheet" href="/src/style.css">
+</head>
+<body class="bg-gray-100 dark:bg-gray-900 min-h-screen p-4">
+    <div class="max-w-6xl mx-auto">
+        <!-- Cabeçalho -->
+        <div class="flex justify-between items-center mb-6">
+            <h1 class="text-3xl font-bold text-gray-800 dark:text-white">Lista de Tarefas</h1>
+            <div class="flex items-center gap-3">
+                <div id="relogio" class="text-lg font-medium text-gray-700 dark:text-gray-300">00:00:00</div>
+                <button id="toggleTema" class="text-sm border border-gray-300 dark:border-gray-600 px-3 py-1 rounded hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
+            Tema
+                </button>
+            </div>
+        </div>
+
+        <!-- Filtros -->
+        <div class="mb-6 flex space-x-4">
+            <button id="filtroTodas" class="filtro-btn filtro-ativo" data-filtro="todas">Todas</button>
+            <button id="filtroPendentes" class="filtro-btn" data-filtro="pendentes">Pendentes</button>
+            <button id="filtroConcluidas" class="filtro-btn" data-filtro="concluidas">Concluídas</button>
+        </div>
+
+        <!-- Botão Nova Tarefa -->
+        <div class="mb-6">
+            <button id="btnNovaTarefa" class="nova-tarefa-btn">Nova Tarefa</button>
+        </div>
+
+        <!-- Tabela de Tarefas -->
+        <div class="bg-white dark:bg-gray-800 rounded-lg shadow overflow-hidden">
+            <table class="w-full">
+                <thead class="bg-gray-50 dark:bg-gray-700">
+                    <tr>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase">Título</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase">Descrição</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase">Data de Criação</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase">Situação</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase">Ações</th>
+                    </tr>
+                </thead>
+                <tbody id="tabelaTarefas" class="divide-y divide-gray-200 dark:divide-gray-700">
+                    <!-- Tarefas aparecem aqui -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Modal Nova Tarefa -->
+        <div id="modalNovaTarefa" class="modal hidden">
+            <div class="modal-content">
+                <h2 class="text-xl font-bold mb-4">Nova Tarefa</h2>
+                <form id="formNovaTarefa">
+                    <div class="mb-4">
+                        <label for="titulo" class="block text-sm font-medium mb-1">Título</label>
+                        <input type="text" id="titulo" required class="input-field">
+                    </div>
+                    <div class="mb-4">
+                        <label for="descricao" class="block text-sm font-medium mb-1">Descrição</label>
+                        <textarea id="descricao" required class="input-field"></textarea>
+                    </div>
+                    <div class="flex justify-end space-x-2">
+                        <button type="button" id="cancelarNovaTarefa" class="btn-cancelar">Cancelar</button>
+                        <button type="submit" class="btn-salvar">Salvar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Modal de Confirmação -->
+        <div id="modalConfirmacao" class="modal hidden">
+            <div class="modal-content">
+                <h2 class="text-xl font-bold mb-4">Confirmação</h2>
+                <p id="mensagemConfirmacao" class="mb-4">Deseja realmente excluir esta tarefa?</p>
+                <div class="flex justify-end space-x-2">
+                    <button id="cancelarAcao" class="btn-cancelar">Cancelar</button>
+                    <button id="confirmarAcao" class="btn-confirmar">Confirmar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="/src/main.js"></script>
+</body>
+</html>
