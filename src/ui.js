@@ -8,14 +8,11 @@ import {
 } from './tasks.js';
 import { salvarTema, carregarTema } from './storage.js';
 
-// Variáveis para controle
 let tarefaParaAcao = null;
 let tipoAcao = '';
 
-// Elementos da interface
 const elementos = {};
 
-// Inicializar a interface
 export function inicializarUI() {
     carregarElementos();
     configurarEventos();
@@ -24,7 +21,6 @@ export function inicializarUI() {
     atualizarTabela();
     atualizarFiltros();
     
-    // Atualizar relógio a cada segundo
     setInterval(atualizarRelogio, 1000);
 }
 
@@ -46,24 +42,19 @@ function carregarElementos() {
 }
 
 function configurarEventos() {
-    // Tema
     elementos.toggleTema.addEventListener('click', alternarTema);
     
-    // Nova tarefa
     elementos.btnNovaTarefa.addEventListener('click', mostrarModalNovaTarefa);
     elementos.cancelarNovaTarefa.addEventListener('click', esconderModalNovaTarefa);
     elementos.formNovaTarefa.addEventListener('submit', handleNovaTarefa);
     
-    // Confirmação
     elementos.cancelarAcao.addEventListener('click', esconderModalConfirmacao);
     elementos.confirmarAcao.addEventListener('click', handleConfirmacao);
     
-    // Filtros
     elementos.filtroTodas.addEventListener('click', () => aplicarFiltro('todas'));
     elementos.filtroPendentes.addEventListener('click', () => aplicarFiltro('pendentes'));
     elementos.filtroConcluidas.addEventListener('click', () => aplicarFiltro('concluidas'));
     
-    // Fechar modais clicando fora
     window.addEventListener('click', (e) => {
         if (e.target === elementos.modalNovaTarefa) {
             esconderModalNovaTarefa();
@@ -153,12 +144,10 @@ function aplicarFiltro(filtro) {
 }
 
 function atualizarFiltros() {
-    // Remove classe ativa de todos os botões
     elementos.filtroTodas.classList.remove('filtro-ativo');
     elementos.filtroPendentes.classList.remove('filtro-ativo');
     elementos.filtroConcluidas.classList.remove('filtro-ativo');
     
-    // Adiciona classe ativa ao botão correto
     const filtroAtual = document.querySelector(`[data-filtro="${getTarefasFiltradas().length === getTarefas().length ? 'todas' : 
         getTarefasFiltradas().every(t => t.situacao === 'Pendente') ? 'pendentes' : 'concluidas'}"]`);
     
@@ -204,7 +193,6 @@ export function atualizarTabela() {
         tbody.appendChild(tr);
     });
     
-    // Adicionar eventos aos botões de ação
     document.querySelectorAll('.btn-concluir').forEach(btn => {
         btn.addEventListener('click', (e) => {
             const id = parseInt(e.target.dataset.id);
